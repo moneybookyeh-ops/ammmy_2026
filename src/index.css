@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-border: #E5E7EB;
+  --color-brand-muted: #6B7280;
+  --color-brand-dark: #111827;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-zinc-50 text-brand-dark antialiased font-sans selection:bg-brand-dark selection:text-white;
+  }
+}
+
+@layer utilities {
+  .border-brutalist {
+    @apply border border-zinc-200;
+  }
+  
+  .glass-header {
+    @apply sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-100;
+  }
+
+  .text-huge {
+    @apply text-5xl md:text-7xl lg:text-9xl font-extrabold tracking-tighter uppercase leading-[0.85];
+  }
+
+  .hover-trigger .hover-target {
+    @apply opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+}
